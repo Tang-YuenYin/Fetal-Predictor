@@ -54,6 +54,14 @@ category_map = {1: 0, 2: 1, 3: 2}
 # Apply the mapping to the target column
 original_data['fetal_health'] = original_data['fetal_health'].map(category_map)
 
+feature_names = ['baseline value', 'accelerations', 'fetal_movement', 'uterine_contractions',
+                     'light_decelerations', 'severe_decelerations', 'prolongued_decelerations',
+                     'abnormal_short_term_variability', 'mean_value_of_short_term_variability',
+                     'percentage_of_time_with_abnormal_long_term_variability', 'mean_value_of_long_term_variability']
+X = original_data[feature_names]
+y = original_data['fetal_health']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+loaded_model= loaded_model.fit(X_train, y_train)
 # Columns to exclude from description and data rows
 columns_to_exclude = ['histogram_min', 'histogram_max', 'histogram_number_of_peaks',
                           'histogram_number_of_zeroes', 'histogram_mode', 'histogram_mean',
