@@ -111,10 +111,10 @@ elif section == 'FetalHealth Prediction':
                      'light_decelerations', 'severe_decelerations', 'prolongued_decelerations',
                      'abnormal_short_term_variability', 'mean_value_of_short_term_variability',
                      'percentage_of_time_with_abnormal_long_term_variability', 'mean_value_of_long_term_variability']
-    X = original_data[feature_names]
-    y = original_data['fetal_health']
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
-    loaded_model= loaded_model.fit(X_train, y_train)
+    #X = original_data[feature_names]
+    #y = original_data['fetal_health']
+    #X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+    #loaded_model= loaded_model.fit(X_train, y_train)
     # Get user input for prediction
     input_data = {}
     for feature in feature_names:
