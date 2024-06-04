@@ -15,23 +15,23 @@ from sklearn.model_selection import train_test_split
 
 
 def initialize_firebase():
-    # Load Firebase credentials from TOML file
-    with open("secret.toml", "r") as file:
-        firebase_credentials = toml.load(file)["firebase"]
+    # # Load Firebase credentials from TOML file
+    # with open("secrets.toml", "r") as file:
+    #     firebase_credentials = toml.load(file)["firebase"]
 
     # Initialize Firebase
     if not firebase_admin._apps:
         cred = credentials.Certificate({
-            "type": firebase_credentials["type"],
-            "project_id": firebase_credentials["project_id"],
-            "private_key_id": firebase_credentials["private_key_id"],
-            "private_key": firebase_credentials["private_key"],
-            "client_email": firebase_credentials["client_email"],
-            "client_id": firebase_credentials["client_id"],
-            "auth_uri": firebase_credentials["auth_uri"],
-            "token_uri": firebase_credentials["token_uri"],
-            "auth_provider_x509_cert_url": firebase_credentials["auth_provider_x509_cert_url"],
-            "client_x509_cert_url": firebase_credentials["client_x509_cert_url"],
+            "type": st.secrets["type"],
+            "project_id": st.secrets["project_id"],
+            "private_key_id": st.secrets["private_key_id"],
+            "private_key": st.secrets["private_key"],
+            "client_email": st.secrets["client_email"],
+            "client_id": st.secrets["client_id"],
+            "auth_uri": st.secrets["auth_uri"],
+            "token_uri": st.secrets["token_uri"],
+            "auth_provider_x509_cert_url": st.secrets["auth_provider_x509_cert_url"],
+            "client_x509_cert_url": st.secrets["client_x509_cert_url"],
         })
         firebase_admin.initialize_app(cred)
 
